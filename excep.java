@@ -33,11 +33,23 @@ class excep{
        }*/
 
       int age = in.nextInt();
-
+    try{
       if(age<18){
-        throw new ArithmeticException("You must be older than 18");
+        /*throw new ArithmeticException("You must be older than 18");*/
+        throw new InvalidAgeException();
       }else{
         System.out.println("You can vote");
       }
+    }catch (InvalidAgeException e){
+        System.out.println(e.m);
     }
+      
+    }
+}
+
+class InvalidAgeException extends Exception{
+  String m;
+  InvalidAgeException(){
+    m="You must be older than 18";
+  }
 }
